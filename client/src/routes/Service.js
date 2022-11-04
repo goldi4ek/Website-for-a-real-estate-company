@@ -2,9 +2,10 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import AboutImg from "../assets/night.jpg";
 import Footer from "../components/Footer";
-import Object from "../components/Object";
+import ObjectList from "../components/ObjectList";
+import {observer} from "mobx-react-lite";
 
-function Service() {
+const Service = observer( () => {
   return (
     <>
     <Navbar/>
@@ -14,10 +15,10 @@ function Service() {
       title = "Service"
       btnClass = "hide"
       />
-      <Object/>
+      <ObjectList/>
       <Footer/>
     </>
   );
-}
+});
 
 export default Service;

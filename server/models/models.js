@@ -16,8 +16,17 @@ const Purpose = sequelize.define('device', {
     img: {type: DataTypes.STRING, allowNull: false},
 })
 
+const Contact = sequelize.define('contact', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING, unique: true, allowNull: false},
+    email: {type: DataTypes.STRING, allowNull: false},
+    phone: {type: DataTypes.STRING, allowNull: false},
+    message: {type: DataTypes.STRING, allowNull: true},
+})
+
 
 module.exports = {
     User,
-    Purpose
+    Purpose,
+    Contact
 }

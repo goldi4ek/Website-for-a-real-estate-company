@@ -1,7 +1,5 @@
 import { Component } from "react";
 import "./ProjectStyles.css";
-import Mountain1 from "../assets/1.jpg";
-import Mountain2 from "../assets/2.jpg";
 
 class ProjectData extends Component {
   render() {
