@@ -14,13 +14,13 @@ function ObjectList() {
     <div className="trip">
       <h1>Our Offers</h1>
         <p>You can discover all our offers</p>
-        <div className="tripcard">
+        <div className="object">
             {purpose.purposes.map(purpose =>
                 <ObjectData
                     key={purpose.id}
                     image={process.env.REACT_APP_API_URL + purpose.img}
                     heading={purpose.name + "  Rooms: " + purpose.room}
-                    text={purpose.price}
+                    text={purpose.price + "$"}
                 />
             )}
         </div>
