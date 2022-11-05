@@ -8,7 +8,6 @@ const ContactForm = () => {
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
 
-  console.log(name.length & email.length & phone.length)
   const validate = () => {
       if (name.length > 0  && email.length > 0 && phone.length > 0) {
           return true;

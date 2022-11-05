@@ -80,6 +80,10 @@
         flex-direction: column;
     }
 
+    .object{
+        flex-direction: column;
+    }
+
     .t-card{
         width: 100%;
         margin-bottom: 1.5rem;
