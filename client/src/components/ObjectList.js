@@ -3,13 +3,18 @@ import ObjectData from "./ObjectData";
 import {useContext, useEffect} from "react";
 import {Context} from "../index";
 import {fetchPurposes} from "../http/purposeAPI";
+import {observer} from "mobx-react-lite";
 
-function ObjectList() {
+const ObjectList = observer(() => {
+
     const {purpose} = useContext(Context)
+
     useEffect(() => {
-        fetchPurposes().then(data => purpose.setPurposes(data.rows))
+        fetchPurposes().then(data => {
+            purpose.setPurposes(data.rows)
+        })
     }, [purpose])
-    console.log(purpose)
+
     return (
     <div className="trip">
       <h1>Our Offers</h1>
@@ -19,7 +24,8 @@ function ObjectList() {
                 <ObjectData
                     key={purpose.id}
                     image={process.env.REACT_APP_API_URL + purpose.img}
-                    heading={purpose.name + "  Rooms: " + purpose.room}
+                    heading={purpose.name}
+                    email={" Rooms: " + purpose.room}
                     text={purpose.price + "$"}
                 />
             )}
@@ -27,6 +33,6 @@ function ObjectList() {
     </div>
 
   );
-}
+})
 
 export default ObjectList;

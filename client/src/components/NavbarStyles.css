@@ -17,12 +17,15 @@
 }
 
 .navbar-logo{
+    font-weight: bold;
+    margin: unset;
     color: #222;
     font-size: 2rem;
     cursor: pointer;
 }
 
 .nav-menu{
+    margin: unset;
     display: grid;
     grid-template-columns: repeat(6, auto);
     grid-gap: 10px;

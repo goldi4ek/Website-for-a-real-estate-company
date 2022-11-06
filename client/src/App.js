@@ -13,7 +13,6 @@ import {Context} from "./index";
 
 const App = observer( () => {
       const {user} = useContext(Context)
-      console.log(user.isAuth)
       return (
         <div className="App">
             <Routes>

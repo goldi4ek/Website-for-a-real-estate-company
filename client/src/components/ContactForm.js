@@ -24,12 +24,12 @@ const ContactForm = () => {
    }
 
   return (
-    <div className="from-container">
+    <div className="form-container">
       <h1>Share your contact with us!</h1>
         <form onSubmit={handleSubmit}>
-            <input type="name" value={name} placeholder="Name" onChange={(e) => { setName(e.target.value) }}/>
-            <input type="email" value={email} placeholder="Email" onChange={(e) => { setEmail(e.target.value) }}/>
-            <input type="phone" value={phone} placeholder="Phone number" onChange={(e) => { setPhone(e.target.value) }}/>
+            <input type="name" value={name} placeholder="Name*" onChange={(e) => { setName(e.target.value) }}/>
+            <input type="email" value={email} placeholder="Email*" onChange={(e) => { setEmail(e.target.value) }}/>
+            <input type="phone" value={phone} placeholder="Phone number*" onChange={(e) => { setPhone(e.target.value) }}/>
             <textarea value={message} placeholder="Message" rows="4" onChange={(e) => { setMessage(e.target.value) }}></textarea>
             <button type='submit' disabled={!validate()} >Share Contact</button>
         </form>
