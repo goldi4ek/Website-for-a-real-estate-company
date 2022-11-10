@@ -3,7 +3,7 @@ const path = require('path')
 const {Contact} = require('../models/models')
 const ApiError = require('../error/ApiError')
 
-class PurposeController {
+class ContactController {
     async create(req, res, next) {
        try {
             const {name, email, phone, message} = req.body
@@ -25,4 +25,4 @@ class PurposeController {
     }
 }
 
-module.exports = new PurposeController()
+module.exports = new ContactController()

@@ -9,6 +9,17 @@
     font-size: 3rem;
 }
 
+.contact{
+    margin: 4rem 6rem;
+    color: #2a2a2a;
+}
+
+.contact h1{
+    margin-top: 10rem;
+    font-size: 3rem;
+}
+
+
 .tripcard{
     margin-top: 3rem;
     display: flex;
@@ -73,6 +84,9 @@
 
 @media screen and (max-width: 850px){
     .trip{
+        margin: 4rem 2rem;
+    }
+    .contact{
         margin: 4rem 2rem;
     }
 

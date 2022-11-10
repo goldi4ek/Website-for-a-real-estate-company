@@ -1,13 +1,13 @@
-import AdminMenu from "../components/AdminMenu";
 import Navbar from "../components/Navbar";
+import ContactList from "../components/ContactList";
 
-function Admin() {
+function ContactView() {
   return (
     <>
         <Navbar/>
-        <AdminMenu/>
+        <ContactList/>
     </>
   );
 }
 
-export default Admin;
+export default ContactView;
