@@ -2,7 +2,13 @@ import { Component } from "react";
 import "./NavbarStyles.css";
 import { MenuItems } from "./MenuItems";
 import { Link } from "react-router-dom";
+import {check} from "../http/userAPI";
 
+
+let auth = false
+check().then(data => {
+    auth = true
+})
 class Navbar extends Component {
   // Set state
   state = {clicked: false};
@@ -34,6 +40,7 @@ class Navbar extends Component {
           </li>
                 )
             })}
+            {auth ? <button onClick={event =>  window.location.href='/admin'}>Admin page</button>: null}
         </ul>
       </nav>
     );

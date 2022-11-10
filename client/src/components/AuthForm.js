@@ -10,14 +10,13 @@ const AuthForm = observer(() => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {user} = useContext(Context)
-  const navigate = useNavigate()
   const click = async (event) => {
       try {
           event.preventDefault();
           await login(email, password);
           user.setUser(user)
           user.setIsAuth(true)
-          navigate("/admin");
+          window.location.href='/admin'
       }catch (e) {
           alert(e.response.data.message)
       }

@@ -1,4 +1,4 @@
-export const MenuItems = [
+export const  MenuItems = [
   // A list of Navlinks & their properties.
     {
         title : "Home",

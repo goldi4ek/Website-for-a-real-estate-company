@@ -6,13 +6,28 @@ import Service from "./routes/Service";
 import Contact from "./routes/Contact";
 import Login from "./routes/Auth";
 import Admin from "./routes/Admin";
+import ContactView from "./routes/ContactView";
 import {observer} from "mobx-react-lite";
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Context} from "./index";
+import {check} from "./http/userAPI";
+import {Spinner} from "react-bootstrap";
+
 
 
 const App = observer( () => {
       const {user} = useContext(Context)
+      const [loading, setLoading] = useState(true)
+
+      useEffect(() => {
+          check().then(data => {
+              user.setUser(true)
+              user.setIsAuth(true)
+          }).finally(() => setLoading(false))
+        }, [user])
+        if (loading) {
+                return <Spinner animation={"grow"}/>
+            }
       return (
         <div className="App">
             <Routes>
@@ -22,6 +37,7 @@ const App = observer( () => {
                 <Route path="/contact" element={<Contact/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/admin" element={user.isAuth ? <Admin/> : <Navigate to="/login"/>}/>
+                <Route path="/contactview" element={user.isAuth ? <ContactView/> : <Navigate to="/login"/>}/>
                 <Route path='*' element={<Navigate to='/'/>} />
             </Routes>
         </div>
