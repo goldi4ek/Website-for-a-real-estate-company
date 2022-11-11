@@ -1,7 +1,8 @@
 const uuid = require('uuid')
 const path = require('path')
-const {Purpose, Contact} = require('../models/models')
+const {Purpose} = require('../models/models')
 const ApiError = require('../error/ApiError')
+const {where} = require("sequelize");
 
 class PurposeController {
     async create(req, res, next) {
@@ -49,6 +50,20 @@ class PurposeController {
             }
         )
         return res.json(purpose)
+        } catch (e) {
+           next(ApiError.badRequest(e.message))
+       }
+    }
+
+    async updateOne(req, res, next) {
+        try {
+            const {id} = req.params
+            const {name, room, price, img} = req.body
+            const purpose = await Purpose.update({name, room, price, img}, {
+                where: {id},
+                }
+                )
+            return res.json(purpose)
         } catch (e) {
            next(ApiError.badRequest(e.message))
        }

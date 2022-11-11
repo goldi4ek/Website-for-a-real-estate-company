@@ -28,6 +28,9 @@ const PurposeList = observer(() => {
                     email={" Rooms: " + purpose.room}
                     text={purpose.price + "$"}
                     id={purpose.id}
+                    room = {purpose.room}
+                    price = {purpose.price}
+                    file = {purpose.img}
                 />
             )}
         </div>

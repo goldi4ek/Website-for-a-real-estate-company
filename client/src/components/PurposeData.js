@@ -1,8 +1,11 @@
 import "./ObjectStyles.css";
-import {Button} from "react-bootstrap";
 import {deleteOnePurpose} from "../http/purposeAPI";
+import {observer} from "mobx-react-lite";
+import {useState} from "react";
+import UpdateOffer from "./modals/UpateOffer";
 
-function PurposeData(props) {
+const PurposeData = observer((props) => {
+    const [purposeVisible, setPurposeVisible] = useState(false)
   return (
     <div className="t-card">
       <div className="t-image">
@@ -12,9 +15,18 @@ function PurposeData(props) {
         <p>{props.email}</p>
         <p>{props.phone}</p>
         <p>{props.text}</p>
-        <Button onClick={() => {deleteOnePurpose(props.id); window.location.reload()}}>Delete</Button>
+        <button onClick={() => setPurposeVisible(true)}>Edit</button>
+        <button onClick={() => {deleteOnePurpose(props.id); window.location.reload()}}>Delete</button>
+        <UpdateOffer show={purposeVisible}
+                     onHide={() => setPurposeVisible(false)}
+                     name_={props.heading}
+                     room_={props.room}
+                     price_={props.price}
+                     file_ = {props.file}
+                     id = {props.id}
+        />
     </div>
   );
-}
+})
 
 export default PurposeData;

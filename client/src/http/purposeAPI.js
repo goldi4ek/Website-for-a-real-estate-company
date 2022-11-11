@@ -21,3 +21,8 @@ export const deleteOnePurpose = async (id) => {
     const {data} = await $authHost.delete('api/purpose/' + id)
     return data
 }
+
+export const updateOnePurpose = async (id, purpose) => {
+    const {data} = await $authHost.put('api/purpose/' + id, purpose)
+    return data
+}
