@@ -1,4 +1,6 @@
 import "./ObjectStyles.css";
+import {Button} from "react-bootstrap";
+import {deleteOneContact} from "../http/contactAPI";
 
 function ContactData(props) {
   return (
@@ -7,6 +9,7 @@ function ContactData(props) {
         <p>{props.email}</p>
         <p>{props.phone}</p>
         <p>{props.text}</p>
+        <Button onClick={() => {deleteOneContact(props.id); window.location.reload()}}>Delete</Button>
     </div>
   );
 }

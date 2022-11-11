@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 const path = require('path')
-const {Purpose} = require('../models/models')
+const {Purpose, Contact} = require('../models/models')
 const ApiError = require('../error/ApiError')
 
 class PurposeController {
@@ -39,6 +39,21 @@ class PurposeController {
         )
         return res.json(purpose)
     }
+
+    async deleteOne(req, res, next) {
+        try {
+            const {id} = req.params
+            const purpose = await Purpose.destroy(
+            {
+                where: {id},
+            }
+        )
+        return res.json(purpose)
+        } catch (e) {
+           next(ApiError.badRequest(e.message))
+       }
+    }
 }
+
 
 module.exports = new PurposeController()

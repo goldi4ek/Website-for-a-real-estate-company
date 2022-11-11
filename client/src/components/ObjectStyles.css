@@ -82,6 +82,22 @@
     padding: .9rem 0 .2rem 0;
 }
 
+.contact h4{
+    padding: 0 0 .2rem 0;
+}
+
+button{
+    display: inline;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
 @media screen and (max-width: 850px){
     .trip{
         margin: 4rem 2rem;

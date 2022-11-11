@@ -16,3 +16,8 @@ export const fetchOnePurpose = async (id) => {
     const {data} = await $host.get('api/purpose/' + id)
     return data
 }
+
+export const deleteOnePurpose = async (id) => {
+    const {data} = await $authHost.delete('api/purpose/' + id)
+    return data
+}

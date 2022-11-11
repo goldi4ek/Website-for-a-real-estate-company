@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 const path = require('path')
-const {Contact} = require('../models/models')
+const {Contact, Purpose} = require('../models/models')
 const ApiError = require('../error/ApiError')
 
 class ContactController {
@@ -22,6 +22,20 @@ class ContactController {
         let contacts;
         contacts = await Contact.findAndCountAll({limit, offset})
         return res.json(contacts)
+    }
+
+    async deleteOne(req, res, next) {
+        try {
+            const {id} = req.params
+            const contact = await Contact.destroy(
+            {
+                where: {id},
+            }
+        )
+        return res.json(contact)
+        } catch (e) {
+           next(ApiError.badRequest(e.message))
+       }
     }
 }
 

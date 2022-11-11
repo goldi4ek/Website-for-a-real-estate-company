@@ -17,7 +17,8 @@ const ContactList = observer(() => {
     }, [contact])
     return (
     <div className="contact">
-      <h1>Contacts {count}</h1>
+      <h1>Contacts</h1>
+        <p>Count: {count}</p>
         <div className="object">
             {contact.contacts.map(contact =>
                 <ContactData
@@ -25,7 +26,8 @@ const ContactList = observer(() => {
                     heading={contact.name}
                     email={" Email: " + contact.email}
                     phone={" Phone: " + contact.phone}
-                    text={contact.message}
+                    text={" Message: " + contact.message}
+                    id={contact.id}
                 />
             )}
         </div>

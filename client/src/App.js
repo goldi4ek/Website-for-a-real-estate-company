@@ -7,6 +7,7 @@ import Contact from "./routes/Contact";
 import Login from "./routes/Auth";
 import Admin from "./routes/Admin";
 import ContactView from "./routes/ContactView";
+import PurposeView from "./routes/PurposeView";
 import {observer} from "mobx-react-lite";
 import {useContext, useEffect, useState} from "react";
 import {Context} from "./index";
@@ -37,7 +38,8 @@ const App = observer( () => {
                 <Route path="/contact" element={<Contact/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/admin" element={user.isAuth ? <Admin/> : <Navigate to="/login"/>}/>
-                <Route path="/contactview" element={user.isAuth ? <ContactView/> : <Navigate to="/login"/>}/>
+                <Route path="/admin/contacts" element={user.isAuth ? <ContactView/> : <Navigate to="/login"/>}/>
+                <Route path="/admin/offers" element={user.isAuth ? <PurposeView/> : <Navigate to="/login"/>}/>
                 <Route path='*' element={<Navigate to='/'/>} />
             </Routes>
         </div>
