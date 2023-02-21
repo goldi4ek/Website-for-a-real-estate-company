@@ -24,6 +24,16 @@ class ContactController {
         return res.json(contacts)
     }
 
+    async getOne(req, res) {
+        const {id} = req.params
+        const contact = await Contact.findOne(
+            {
+                where: {id},
+            }
+        )
+        return res.json(contact)
+    }
+
     async deleteOne(req, res, next) {
         try {
             const {id} = req.params

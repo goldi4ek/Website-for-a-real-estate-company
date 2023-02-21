@@ -9,14 +9,13 @@ const UpdateOffer = observer(({show, onHide, name_, room_, price_, file_, id}) =
     const [name, setName] = useState('')
     const [room, setRoom] = useState()
     const [price, setPrice] = useState()
-    console.log(file_)
+    
     const updatePurpose = () => {
         const formData = new FormData()
         formData.append('name', name)
         formData.append('room', room)
         formData.append('price', price)
         formData.append('img', file_)
-        console.log(formData)
         updateOnePurpose(id, formData).then(data => onHide())
     }
 
