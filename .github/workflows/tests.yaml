@@ -26,3 +26,5 @@ jobs:
         run: |
           cd server
           npm test
+#  deploy:
+#    need: test
