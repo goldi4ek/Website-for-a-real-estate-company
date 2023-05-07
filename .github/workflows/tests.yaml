@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         run: |
@@ -26,5 +26,27 @@ jobs:
         run: |
           cd server
           npm test
-#  deploy:
-#    need: test
+
+  deploy-client:
+    name: Deploy Client
+    needs: [test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy client to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.CLIENT_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+
+  deploy-server:
+    name: Deploy Server
+    needs: [test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy server to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
