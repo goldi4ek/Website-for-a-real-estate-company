@@ -11,7 +11,7 @@ function Contact() {
       <Hero
       cName = "hero-mid"
       heroImg = {AboutImg}
-      title = "Contactsssss"
+      title = "Contact"
       btnClass = "hide"
       />
       <ContactForm/>
