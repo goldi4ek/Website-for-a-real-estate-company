@@ -3,7 +3,7 @@ import "./AboutUsStyles.css";
 function AboutUs() {
   return (
     <div className="about-container">
-      <h1>Our history</h1>
+      <h1>Our History</h1>
         <p>Easybud is a young, ambitious group of companies that has been an active, socially responsible player in the capital's real estate market since 2014.</p>
 
         <h1>Our Idea</h1>
